@@ -1,4 +1,4 @@
-# Claims Management Application
+# Medi-Claims
 
 This is a full-stack MFPE project built as part  ADM.
 
