@@ -1,0 +1,45 @@
+<div class="header">
+  <nav
+    class="nav navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top"
+  >
+    <a class="navbar-brand" routerLink="home"
+      ><img
+        src="../../assets/img/aurora-dao.svg"
+        class="brand-logo"
+        alt="brand logo"
+      />MediClaim</a
+    >
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav nav-items">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="auth">Login</a>
+        </li>
+
+        <div class="dropdown" routerLinkActive="active" *ngIf="isAuthenticated">
+          <div class="projects">
+            <button class="nav-link">
+              <img
+                src="../../assets/img/user.png"
+                alt="user icon"
+                class="user-icon"
+              />{{ username }}
+            </button>
+            <ul>
+              <li [routerLink]="[username, 'viewClaims']"><a>View Bills</a></li>
+              <li [routerLink]="[username, 'getClaimStatus']">
+                <a>View Claim Status</a>
+              </li>
+              <li [routerLink]="[username, 'submitClaim']">
+                <a>Submit Claim</a>
+              </li>
+              <li (click)="onLogout()"><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</div>

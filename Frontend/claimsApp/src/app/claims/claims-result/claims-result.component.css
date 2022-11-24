@@ -1,0 +1,44 @@
+.parent {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  height: 66vh;
+  width: 40vw;
+  border: 1px solid lightgray;
+  border-radius: 8%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.billrow--detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 100px 40px 30px;
+}
+
+.statusrow--detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 30px 40px 30px;
+}
+
+.bill--tag {
+  margin-left: 30px;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+p {
+  margin-top: 5px;
+}

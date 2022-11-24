@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="
+        col-xs-12 col-md-5 col-sm-10 col-sm-offset-1 col-md-offset-2
+        row__content
+      "
+    >
+      <div class="spinner" *ngIf="isValidating" class="spinner">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="!isValidating">
+        <div class="heading">
+          <h2 class="heading--highlight highlight">
+            {{ isClaimStatusMode ? "Claim Status Portal" : "Bills Portal" }}
+          </h2>
+        </div>
+
+        <div class="form-group" *ngIf="isBillMode">
+          <label for="memberID">Member ID</label>
+          <input
+            type="text"
+            class="form-control"
+            name="memberID"
+            placeholder="Enter member id"
+            ngModel
+            required
+            #memberID="ngModel"
+          />
+          <span *ngIf="memberID.touched && !memberID.valid" style="color: red"
+            >Please enter member ID</span
+          >
+        </div>
+
+        <!-- Claim Status Mode -->
+        <div class="form-group" *ngIf="isClaimStatusMode">
+          <label for="claimID">Claim ID</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter claim id"
+            name="claimID"
+            ngModel
+            required
+            #claimID="ngModel"
+          />
+          <span *ngIf="!claimID.valid && claimID.touched" style="color: red"
+            >Please enter Claim ID</span
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+          {{ isClaimStatusMode ? "View status" : "View bill" }}
+          &rarr;
+        </button>
+      </form>
+
+      <app-alert
+        [message]="error"
+        *ngIf="error"
+        (close)="handleError()"
+      ></app-alert>
+    </div>
+  </div>
+</div>

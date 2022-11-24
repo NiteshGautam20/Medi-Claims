@@ -1,0 +1,133 @@
+###Authorization Token Generation
+POST http://localhost:8008/authorization/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "userName" : "adyasha1",
+    "password" : "adyasha1"
+}
+###Authorization token validation
+
+GET http://localhost:8008/authorization/validate HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzMDczNiwiaWF0IjoxNjEyOTI4OTM2fQ.w2g5DJA-mnK1Y1ZjTR0dwwu9Vf45hCPWIqVIkQsBaTA
+
+
+###For Packaging and delivery service 
+POST http://localhost:8000/packaging/getPackagingDeliveryCharge/accessory/3 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzMDczNiwiaWF0IjoxNjEyOTI4OTM2fQ.w2g5DJA-mnK1Y1ZjTR0dwwu9Vf45hCPWIqVIkQsBaTA
+
+
+###For Payment Service
+
+POST http://localhost:8001/payment/processpayment/qwerty/1234567/50000/10000 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzMDczNiwiaWF0IjoxNjEyOTI4OTM2fQ.w2g5DJA-mnK1Y1ZjTR0dwwu9Vf45hCPWIqVIkQsBaTA
+
+###For Component Service
+
+POST http://localhost:8080/component/componentprocessingmodule/ProcessDetail HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzMDczNiwiaWF0IjoxNjEyOTI4OTM2fQ.w2g5DJA-mnK1Y1ZjTR0dwwu9Vf45hCPWIqVIkQsBaTA
+
+{
+    "userName":"Avik",
+    "contactNumber":122,
+    "creditCardNumber":456,
+    "isPriorityRequest":false,
+    "componentType":"accessory",
+    "componentName":"any",
+    "quantity":2
+}
+
+###Component Processing Module 
+POST http://localhost:8080/component/componentprocessingmodule/completeProcessing/abcd21/1234567/50000/45000 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzMDczNiwiaWF0IjoxNjEyOTI4OTM2fQ.w2g5DJA-mnK1Y1ZjTR0dwwu9Vf45hCPWIqVIkQsBaTA
+
+
+###Authorization Health Check
+GET http://localhost:8008/authorization/health-check HTTP/1.1
+
+
+
+###Packaging and Delivery Health Check
+GET http://localhost:8000/packaging/health-check HTTP/1.1
+
+
+###Payment Health Check
+GET http://localhost:8001/payment/health-check HTTP/1.1
+
+
+###Component Processing Health Check
+GET http://localhost:8080/component/componentprocessingmodule/health-check HTTP/1.1
+
+
+##HEALTH CHECK OF AWS 
+
+###Authorization Health Check
+GET http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/authorization/health-check HTTP/1.1
+
+
+
+###Packaging and Delivery Health Check
+GET http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/packaging/health-check HTTP/1.1
+
+
+###Payment Health Check
+GET http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/payment/health-check HTTP/1.1
+
+
+###Component Processing Health Check
+GET http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/component/componentprocessingmodule/health-check HTTP/1.1
+
+#############################Aws#######################
+
+###Authorization Token Generation
+POST http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/authorization/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "userName" : "adyasha1",
+    "password" : "adyasha1"
+}
+###Authorization token validation
+
+GET http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/authorization/validate HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzNTYzNywiaWF0IjoxNjEyOTMzODM3fQ.rOpS2MMaWSQaXMlNCREENevBY7dt4jlhQXQqopiQIbc
+
+
+###For Packaging and delivery service 
+POST http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/packaging/getPackagingDeliveryCharge/accessory/3 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzNTYzNywiaWF0IjoxNjEyOTMzODM3fQ.rOpS2MMaWSQaXMlNCREENevBY7dt4jlhQXQqopiQIbc
+
+
+###For Payment Service
+
+POST http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/payment/processpayment/qwerty/1234567/50000/10000 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzNTYzNywiaWF0IjoxNjEyOTMzODM3fQ.rOpS2MMaWSQaXMlNCREENevBY7dt4jlhQXQqopiQIbc
+
+###For Component Service
+
+POST http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/component/componentprocessingmodule/ProcessDetail HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzNTYzNywiaWF0IjoxNjEyOTMzODM3fQ.rOpS2MMaWSQaXMlNCREENevBY7dt4jlhQXQqopiQIbc
+
+{
+    "userName":"Avik",
+    "contactNumber":122,
+    "creditCardNumber":456,
+    "isPriorityRequest":false,
+    "componentType":"accessory",
+    "componentName":"any",
+    "quantity":2
+}
+
+###Component Processing Module 
+POST http://pod-4-lb-1878314468.us-east-2.elb.amazonaws.com/component/componentprocessingmodule/completeProcessing/abcd21/1234567/50000/45000 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHlhc2hhMSIsImV4cCI6MTYxMjkzNTYzNywiaWF0IjoxNjEyOTMzODM3fQ.rOpS2MMaWSQaXMlNCREENevBY7dt4jlhQXQqopiQIbc
+
+
